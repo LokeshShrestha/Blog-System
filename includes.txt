@@ -1,0 +1,24 @@
+Advanced Blog with User Authentication & Permissions
+Features:
+- User registration, login, logout, password reset.
+- Different user roles (Admin, Author, Reader).
+- Blog post creation, editing, deletion (CRUD).
+- Comments system (with moderation).
+- Categories & Tags for posts.
+- Rich text editor (like TinyMCE or CKEditor).
+- Image uploads (using Pillow).
+- Search functionality.
+Concepts Learned:
+- Django Authentication System (User model, @login_required, PermissionRequiredMixin).
+- Model relationships (ForeignKey, ManyToManyField).
+- File uploads & media handling.
+- Custom template tags/filters.
+- Pagination (Paginator class).
+
+Plan 
+Day 1-User Authentication(Different members)
+Day 2-blog crude
+Day 3-figure crude
+Day 4-comment system
+Day 5-text editor
+DAy 6- Finishing touches
