@@ -3,14 +3,7 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-    </div>
-    <button type="submit" name="login">Login</button>
+    {{ form.as_p }}
+    <button type="submit">Login</button>
 </form>
 {% endblock %}
