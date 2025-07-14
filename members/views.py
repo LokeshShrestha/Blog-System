@@ -1,21 +1,40 @@
 from django.shortcuts import render,redirect
+
+from django.contrib.auth import login, logout
 from . import forms
 # Create your views here.
-def login_user(request):
-    form = forms.LoginForm()
-    context = {
-        "form":form,
-    }
-    return render(request, "login.html", context)
 def register_user(request):
+    if request.user.is_authenticated:
+        return redirect("members:profile")
     if request.method == "POST":
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
-            form.save
-            return redirect("login")
+            user = form.save()
+            user.save()
+            return redirect("members:login")
     else:
         form = forms.RegistrationForm()
-    context ={
-        "form": form,
-    }
-    return render(request, "signup.html", context)
+    return render(request,"signup.html",{"form":form})
+
+def login_user(request):
+    if request.user.is_authenticated:
+        return redirect("members:profile")
+    if request.method == "POST":
+        form = forms.LoginForm(request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect("members:profile")
+        else:
+            print(ass)
+    else:
+        form = forms.LoginForm()
+    return render(request, "login.html", {"form": form})
+
+def logout_user(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect("members:login")
+    return render(request, "logout.html")
+def profile(request):
+    return render(request, "profile.html", {"user": request.user})
