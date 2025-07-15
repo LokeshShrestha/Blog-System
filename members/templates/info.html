@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+{% block title %}Add Information{% endblock %}
+{% block content %}
+<h2>Add Information</h2>
+<form action="" method = "POST">
+    {{form.as_p}}
+    {%csrf_token%}
+    <button type="submit">Save</button>
+    <a href="{% url 'members:profile' %}">Cancel</a>
+</form>
+{%endblock%}

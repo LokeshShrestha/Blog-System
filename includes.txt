@@ -1,6 +1,6 @@
 Blog Site 
 Features:
-- User registration, login, logout, password reset.
+- User registration, login, logout
 - Different user roles (Admin, Author, Reader).
 - Blog post creation, editing, deletion (CRUD).
 - Comments system (with moderation).
