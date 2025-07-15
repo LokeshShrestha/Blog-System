@@ -27,8 +27,7 @@ def login_user(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect("members:profile")
-
+            return redirect("members:info")
     else:
         form = forms.LoginForm()
     return render(request, "login.html", {"form": form})
@@ -40,12 +39,31 @@ def logout_user(request):
     return render(request, "logout.html")
 
 def infouser(request):
+    if not request.user.is_authenticated:
+        return redirect("members:login")
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except:
+        user_profile = UserProfile.objects.create(user=request.user)
     if request.method == "POST":
-        form = forms.InfoForm(request.POST)
+        form = forms.InfoForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
+            return redirect("members:profile")
     else:
-        form = forms.InfoForm()
-    return(request,"info.html",{"form":form})
+        form = forms.InfoForm(instance = user_profile)
+    return render(request,"info.html",{"form":form})
+
+
 def profile(request):
-    return render(request, "profile.html", {"user": request.user})
+    if not request.user.is_authenticated:
+        return redirect("members:login")
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        user_profile = UserProfile.objects.create(user=request.user)
+    
+    return render(request, "profile.html", {
+        "user": request.user,
+        "user_profile": user_profile
+    })

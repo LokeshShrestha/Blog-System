@@ -8,6 +8,7 @@ from django.dispatch import receiver
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     rank = models.CharField(max_length=20, choices=[
         ('admin', 'Admin'),
         ('author', 'Author'),

@@ -15,7 +15,7 @@ class RegistrationForm(UserCreationForm):
         self.fields['username'].widget.attrs['placeholder'] = 'Username'
         self.fields['email'].widget.attrs['placeholder'] = 'Email'
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'
-        self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'  
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
 
 class LoginForm(AuthenticationForm):
 
@@ -30,9 +30,12 @@ class LoginForm(AuthenticationForm):
 class InfoForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio']
-    def _init__(self, *args,**kwargs):
+        fields = ['bio','profile_picture']
+    def __init__(self, *args,**kwargs):
         super().__init__(*args,**kwargs)
         self.fields['bio'].widget.attrs['class'] = 'form-control'
         self.fields['bio'].widget.attrs['placeholder'] = 'Tell us about yourself'
+        self.fields['profile_picture'].widget.attrs['class'] = 'form-control'
+        self.fields['profile_picture'].widget.attrs['placeholder'] = 'Upload a profile picture'
+
 
