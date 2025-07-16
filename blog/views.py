@@ -1,18 +1,20 @@
 from django.shortcuts import render, redirect
 from members.models import UserProfile
+from .models import BlogPost
 from .forms import BlogPostForm
+from django.db.models import Count
 # Create your views here.
 
-def data(request):
-    if not request.user.is_authenticated:
-        return redirect("members:login")
-    # Get the user's profile
-    user_profile = UserProfile.objects.get(user=request.user)
-    return user_profile
 def blog_home(request):
     if not request.user.is_authenticated:
         return redirect("members:login")
-    return render(request, "blog_home.html",{"user": request.user, "rank": data(request).rank})
+    context = {
+        "user": request.user,
+        "rank": request.user.userprofile.rank,
+        "recent_blogs": BlogPost.objects.all().order_by('-created_at'),
+        "top_blogs": BlogPost.objects.annotate(view_total=Count('views')).order_by('-view_total')[:6],
+    }
+    return render(request, "blog_home.html", context)
 
 
 def post_blog(request):
@@ -24,9 +26,9 @@ def post_blog(request):
         form = BlogPostForm(request.POST)
         if form.is_valid():
             blog_post = form.save(commit=False)
-            blog_post.author = request.user.userprofile
+            blog_post.author = request.user
             blog_post.save()
             return redirect("blog:blog_home")
     else:
         form = BlogPostForm()
-    return render(request, "post_blog.html", {"form": form})
+    return render(request, "post_blog.html", {"form": form, "user": request.user, "rank": request.user.userprofile.rank})

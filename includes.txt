@@ -1,25 +1,18 @@
 Blog Site 
 Features:
-- User registration, login, logout
-- Different user roles (Admin, Author, Reader).
-- Blog post creation, editing, deletion (CRUD).
+- User registration, login, logout ✅
+- Different user roles (Author, Reader). 🟧
+- Blog post creation, editing, deletion (CRUD). ✅
 - Comments system (with moderation).
 - Categories & Tags for posts.
 - Rich text editor (like TinyMCE or CKEditor).
 - Image uploads (using Pillow).
 - Search functionality.
+
+
 Concepts to learn:
-- Django Authentication System (User model, @login_required, PermissionRequiredMixin).
-- Model relationships (ForeignKey, ManyToManyField).
+- Django Authentication System (User model, @login_required, PermissionRequiredMixin). ✅
+- Model relationships (ForeignKey, ManyToManyField). ✅
 - File uploads & media handling.
 - Custom template tags/filters.
 - Pagination (Paginator class).
-
-Plan 
-Day 1-Basic User Authentication
-Day 2-User Authentication(Multiple hierarchy)
-Day 3-blog crude
-Day 4-figure crude
-Day 5-comment system
-Day 6-text editor
-DAy 7- Finishing touches

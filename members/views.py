@@ -14,7 +14,7 @@ def register_user(request):
         if form.is_valid():
             user = form.save()
             user.save()
-            return redirect("members:login")
+            return redirect("members:info")
     else:
         form = forms.RegistrationForm()
     return render(request,"signup.html",{"form":form})
@@ -27,7 +27,7 @@ def login_user(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect("members:info")
+            return redirect("members:profile")
     else:
         form = forms.LoginForm()
     return render(request, "login.html", {"form": form})

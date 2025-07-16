@@ -1,11 +1,50 @@
 from django.db import models
-from members.models import UserProfile
+from django.contrib.auth.models import User
 # Create your models here.
 
 class BlogPost(models.Model):
+    CATEGORY_CHOICES = [
+        ('technology', 'Technology'),
+        ('sports', 'Sports'),
+        ('health', 'Health'),
+        ('travel', 'Travel'),
+        ('food', 'Food'),
+        ('entertainment', 'Entertainment'),
+        ('education', 'Education'),
+        ('business', 'Business'),
+        ('lifestyle', 'Lifestyle'),
+        ('news', 'News'),
+    ]
     title = models.CharField(max_length=200)
     content = models.TextField()
-    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    views = models.ManyToManyField(User, related_name='views', blank=True)
+    likes = models.ManyToManyField(User, related_name='liked_posts', blank=True)
+    tags = models.CharField(max_length=100, blank=True, null=True)
+    category = models.CharField(max_length=100, blank=True,  choices= CATEGORY_CHOICES)
     def __str__(self):
-        return self.title
+        return f"{self.title} - {self.author}"
+    
+    @property
+    def like_count(self):
+        return self.likes.count()
+    @property
+    def view_count(self):
+        return self.views.count()
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Blog Post'
+        verbose_name_plural = 'Blog Posts'
+
+class Comment(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='comments')
+    commentor = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
+    def __str__(self):
+        return f"Comment by {self.commentor} on {self.post}"
