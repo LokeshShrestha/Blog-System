@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BlogX{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
@@ -11,7 +12,13 @@
             <ul>
                 <li><a href="{% url 'blog:blog_home' %}">Blogs</a></li>
                 <li><a href="{% url 'members:profile' %}">Profile</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="{% url 'blog:post_blog' %}">Post Blog</a></li>
             </ul>
+              <form action="" method="">
+                <input type="text" name="q" placeholder="Search posts...">
+                <button type="submit">🔍</button>
+            </form>
         </nav>
     </header>
     <main>
