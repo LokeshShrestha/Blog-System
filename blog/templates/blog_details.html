@@ -10,7 +10,11 @@ Posted : {{blog.created_at}}
 <br>
 Category : {{blog.category}}
 Views : {{blog.view_count}}
-Likes : {{blog.like_count}}
+
+<form action="" method="post">
+        {% csrf_token %}
+        <button name = "like_this" type="submit">Likes | {{blog.like_count}}</button>
+</form>
 
 {% if user == blog.author %}
 <a href="{% url 'blog:edit_blog' blog.id %}">Edit</a>

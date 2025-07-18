@@ -36,9 +36,20 @@ def post_blog(request):
 def blog_details(request,id):
     blog = BlogPost.objects.get(id = id)
     comments = blog.comments.all()
+    if request.user.is_authenticated:
+        blog.views.add(request.user)
+    else:
+        return redirect("members:login")
     if request.method == "POST":
-        if not request.user.is_authenticated:
-            return redirect("members:login")
+        #  like
+        if "like_this" in request.POST:
+            if request.user not in blog.likes.all():
+                blog.likes.add(request.user)
+            else:
+                blog.likes.remove(request.user)
+            return redirect("blog:blog_details", id=blog.id)
+        
+        # Delete comment 
         if "delete_comment" in request.POST:
             comment_id = request.POST.get("delete_comment")
             try:
@@ -49,6 +60,7 @@ def blog_details(request,id):
                 pass
             return redirect("blog:blog_details", id=blog.id)
         
+        #  Put ccomment
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
