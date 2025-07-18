@@ -1,5 +1,5 @@
 from django import forms
-from .models import BlogPost
+from .models import BlogPost,Comment
 class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
@@ -11,3 +11,11 @@ class BlogPostForm(forms.ModelForm):
         self.fields['content'].widget.attrs.update({'placeholder': 'Write your blog content here...'})
         self.fields['tags'].widget.attrs.update({'placeholder': 'Add tags (comma separated)'})
         self.fields['category'].widget.attrs.update({'placeholder': 'Select a category'})
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
+        widgets = {
+            'content': forms.Textarea(attrs={'placeholder': 'Comment here...'}),
+        }

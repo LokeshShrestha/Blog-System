@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} ass{% endblock%}
+
+{% block content %}
+
+
+{{blog.title}}
+Author : {{blog.author}}
+Posted : {{blog.created_at}}
+<br>
+Category : {{blog.category}}
+Views : {{blog.view_count}}
+Likes : {{blog.like_count}}
+
+{% if user == blog.author %}
+<a href="{% url 'blog:edit_blog' blog.id %}">Edit</a>
+{% endif %} 
+
+<br>
+<br>
+{{blog.content}}
+<br>
+{{blog.tags}}
+<hr>
+comments:
+<form action="" method="post">
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <button type="submit">Add Comment</button>
+</form>
+{% for comment in comments%}
+    {{comment.commentor}} : {{comment.content}} : {{comment.created_at}}
+    {% if user == comment.commentor %}
+        <form action="" method ="post">
+            {% csrf_token %}
+            <button type="submit" name="delete_comment" value="{{ comment.id }}">Delete</button>
+        </form>
+    {% endif %}
+    <br>
+{%endfor%}
+{% endblock %}
