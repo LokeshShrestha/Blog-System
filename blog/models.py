@@ -14,6 +14,8 @@ class BlogPost(models.Model):
         ('business', 'Business'),
         ('lifestyle', 'Lifestyle'),
         ('news', 'News'),
+        ('gaming', 'Gaming'),
+        ('other', 'Other'),
     ]
     title = models.CharField(max_length=200)
     content = models.TextField()
