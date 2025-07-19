@@ -18,12 +18,16 @@
         {% for i in top_blogs %}
         <div class="top-post-container">
             <h3 class="h3">{{ i.title }}</h3>
-            <p>{{ i.content|slice:":100" }}...</p>
-            <p>Author: {{ i.author.username }}</p>
-            <p>Created at: {{ i.created_at }}</p>
-            <p>Views: {{ i.view_count }}</p>
-            <p>Likes: {{ i.like_count }}</p>
-            <a href="{% url 'blog:blog_details' i.id%}" class="text button-secondary">Read more</a>
+            <p class="text">{{ i.content|slice:":100" }}...</p>
+            <div class="blog-author-content">
+                <p class="text">Author: {{ i.author.username }} </p>
+                <p class="text">{{ i.created_at }}</p>
+            </div>
+            <div class="blog-stats">
+                <p class="text">Views: {{ i.view_count }}</p>
+                <p class="text">Likes: {{ i.like_count }}</p>
+                <a href="{% url 'blog:blog_details' i.id%}" class="text button-secondary">Read more</a>
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -32,13 +36,17 @@
     <h2 class="h2">Recent Posts</h2>
         {% for i in recent_blogs %}
     <div class="top-post-container">
-        <h3 class="h3">{{ i.title }}</h3>
-        <p>{{ i.content|slice:":100" }}...</p>
-        <p>Author: {{ i.author.username }}</p>
-        <p>Created at: {{ i.created_at }}</p>
-        <p>Views: {{ i.view_count }}</p>
-        <p>Likes: {{ i.like_count }}</p>
+            <h3 class="h3">{{ i.title }}</h3>
+            <p class="text">{{ i.content|slice:":100" }}...</p>
+            <div class="blog-author-content">
+                <p class="text">Author: {{ i.author.username }} </p>
+                <p class="text">{{ i.created_at }}</p>
+            </div>
+            <div class="blog-stats">
+                <p class="text">Views: {{ i.view_count }}</p>
+                <p class="text">Likes: {{ i.like_count }}</p>
         <a href="{% url 'blog:blog_details' i.id %}" class="text button-secondary">Read more</a>
+        </div>
     </div>
         {% endfor %}
 </div>
