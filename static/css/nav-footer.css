@@ -1,0 +1,53 @@
+nav{
+    padding: 20px;
+}
+nav .nav-list{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+nav .nav-list li a {
+    text-decoration: none;
+    color: rgb(69, 1, 133);
+}
+
+/* Profile */
+.profile-container {
+    min-height: 100vh;
+}
+.profile-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px ;
+    padding-bottom: 20px;
+    justify-content: left;
+}
+.profile-bio{
+    padding: 20px;
+}
+.profile-actions{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.info-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    
+}
+.info-form label {
+    
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}

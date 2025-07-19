@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BlogX{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav-footer.css' %}">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="{% url 'blog:blog_home' %}">Blogs</a></li>
-                <li><a href="{% url 'members:profile' %}">Profile</a></li>
-                <li><a href="">Categories</a></li>
-                <li><a href="{% url 'blog:post_blog' %}">Post Blog</a></li>
+            <ul class="nav-list">
+                <li><a href="{% url 'blog:blog_home' %}" class="text">Blogs</a></li>
+                <li><a href="{% url 'members:profile' %}" class="text">Profile</a></li>
+                <li><a href="" class="text">Categories</a></li>
+                <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
             </ul>
-              <form action="" method="">
-                <input type="text" name="q" placeholder="Search posts...">
-                <button type="submit">🔍</button>
-            </form>
         </nav>
     </header>
     <main>
@@ -25,7 +24,7 @@
         {% endblock %}
     </main>
     <footer>
-        <p>&copy; 2023 BlogX. All rights reserved.</p>
+        <p class="text">&copy; 2023 BlogX. All rights reserved.</p>
     </footer>
 </body>
 </html>

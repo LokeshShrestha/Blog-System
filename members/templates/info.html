@@ -1,11 +1,14 @@
 {%extends "base.html"%}
+{% load static %}
 {% block title %}Add Information{% endblock %}
 {% block content %}
-<h2>Add Information</h2>
-<form action="" method = "POST" enctype="multipart/form-data">
+<h1 class="h1">Add Information</h1>
+<form action="" method = "POST" enctype="multipart/form-data" class = "info-form">
     {{ form.as_p }}
     {%csrf_token%}
-    <button type="submit">Save</button>
-    <a href="{% url 'members:profile' %}">Cancel</a>
+    <div class="info-buttons">
+        <button type="submit" class="text button-primary">Save</button>
+        <a href="{% url 'members:profile' %}" class="button-secondary text">Cancel</a>
+    </div>
 </form>
 {%endblock%}

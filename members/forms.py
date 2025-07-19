@@ -33,7 +33,7 @@ class InfoForm(forms.ModelForm):
         fields = ['bio','profile_picture']
     def __init__(self, *args,**kwargs):
         super().__init__(*args,**kwargs)
-        self.fields['bio'].widget.attrs['class'] = 'form-control'
+        self.fields['bio'].widget.attrs['class'] = 'form-control text'
         self.fields['bio'].widget.attrs['placeholder'] = 'Tell us about yourself'
         self.fields['profile_picture'].widget.attrs['class'] = 'form-control'
         self.fields['profile_picture'].widget.attrs['placeholder'] = 'Upload a profile picture'

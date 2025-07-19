@@ -1,22 +1,29 @@
 {%extends "base.html"%}
+{% load static %}
 {% block title %}Profile{% endblock %}
 {% block content %}
-<h2>User Profile</h2>
-<p>Hello {{user_profile.rank}} {{ user.username }}</p>
-<div>
-    {% if user_profile.profile_picture %}
-    <img src="{{ user_profile.profile_picture.url }}" alt="" style="border-radius: 50%; height : 100px; width: 100px;">
-    {%else%}
-    <div style = "border-radius: 50%; height : 100px; width: 100px; background-color : black"></div>
-    {%endif%}
-
-    {% if user_profile.bio%}
-    <p>{{user_profile.bio}}</p>
-    {%else%}
-    <p>No bio available.</p>
-    {%endif%}
+<div class = "profile-container">
+    <h1 class="h1">User Profile</h1>
+    <div class="profile-info">
+        {% if user_profile.profile_picture %}
+        <img src="{{ user_profile.profile_picture.url }}" alt="" style="border-radius: 50%; height : 200px; width: 200px;">
+        <h2 class="h2">Hello {{ user.username.capitalize }}</h2>
+        {%else%}
+        <div style = "border-radius: 50%; height : 200px; width: 200px; background-color : black"></div>
+        <h2 class="h2">Hello {{ user.username.capitalize }}</h2>
+        {%endif%}
+    </div>
+        <div class="profile-bio">
+        {% if user_profile.bio%}
+        <h3 class="h3">Bio: </h3>
+        <p class="text">{{user_profile.bio}}</p>
+        {%else%}
+        <p class="text">No bio available.</p>
+        {%endif%}
+        </div>
+    <div class="profile-actions">
+        <a href="{% url 'members:info' %}" class="text button-primary">Edit Profile</a>
+        <a href="{% url 'members:logout' %}" class="text button-secondary">Log out</a>
+    </div>
 </div>
-
-<a href="{% url 'members:logout' %}">Logout</a>
-<a href="{% url 'members:info' %}">Edit info</a>
 {% endblock %}
