@@ -1,0 +1,11 @@
+.top-post-container {
+    background-color: white;
+    padding: 20px 30px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.top-post-container:hover{
+    padding: 26px 36px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
