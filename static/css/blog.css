@@ -1,12 +1,18 @@
 .top-post-container {
     background-color: white;
-    padding: 20px 30px;
+    padding: 20px 30px 30px 30px;
     margin-bottom: 16px;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out all;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .top-post-container:hover{
-    padding: 26px 36px;
+    
+    transform: scale(1.02);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 .blog-author-content{
@@ -17,4 +23,20 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
+.blog-home-hero {
+    margin: 10px 0;
+}
+.blog-container p{
+    margin-bottom: 20px;
+}
+.top-posts {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.all-blog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

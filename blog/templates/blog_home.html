@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 {% block title %}BlogX Home{% endblock %}
 {% block content %}
-<h1 class="h1">Welcome to BlogX</h1>
-<p class="text"`>This is the home page of BlogX.</p>
-
-<div>
+<div class = "blog-home-hero">
+    <h1 class="h1">Welcome to BlogX</h1>
+    <p class="text">This is the home page of BlogX.</p>
+</div>
+<div class="blog-container">
     {% if rank == "author" %}
         <p class="text">You are logged in as the author.</p>
         <a href="{% url 'blog:post_blog'%}" class="text button-primary">Create a post</a>
     {% else %}
-    <p class="text">You are logged in as a reader.</p>
+        <p class="text">You are logged in as a reader.</p>
     {% endif %}
 </div>
-<div>
+<div class="all-blog-container">
     <h2 class="h2">Top Posts</h2>
-    <div>
+    <div class="top-posts">
         {% for i in top_blogs %}
         <div class="top-post-container">
             <h3 class="h3">{{ i.title }}</h3>
-            <p class="text">{{ i.content|slice:":100" }}...</p>
+            <p class="text">{{ i.content|slice:":104" }} ......</p>
             <div class="blog-author-content">
                 <p class="text">Author: {{ i.author.username }} </p>
                 <p class="text">{{ i.created_at }}</p>
