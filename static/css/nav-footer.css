@@ -51,3 +51,6 @@ nav .nav-list li a {
     font-style: var(--font-style);
     font-optical-sizing: var(--font-optical-sizing);
 }
+footer {
+    padding-bottom: 20px;
+}
