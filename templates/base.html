@@ -16,7 +16,8 @@
                 <li><a href="{% url 'blog:blog_home' %}" class="text">Blogs</a></li>
                 <li><a href="{% url 'members:profile' %}" class="text">Profile</a></li>
                 <li><a href="" class="text">Categories</a></li>
-                <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
+                {% block user_links %}
+                {% endblock %}
             </ul>
         </nav>
     </header>

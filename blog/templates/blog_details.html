@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block title %}BlogX | {{ blog.title.capitalize }}{% endblock %}
-
+{% block user_links %}
+    {% if request.user.is_authenticated and request.userprofile.rank == "author" %}
+        <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
+    {% endif %}
+{% endblock %}
 {% block content %}
 
 <div class="blog-details-container">
@@ -29,29 +33,36 @@
 
     {% if user == blog.author %}
     <a href="{% url 'blog:edit_blog' blog.id %}" class="text button-primary">Edit</a>
-    {% endif %} 
+    <a href="{% url 'blog:delete_blog' blog.id %}" class="text button-secondary">Delete</a>
+    {% endif %}
 </div>
 <div class="blog-details-content">
     <p class="text">{{blog.content}}</p>
     <p class="text">Tags: {{blog.tags}}</p>
 
 </div>
-<hr>
-<h3 class="h3">Comments:</h3>
+
 <form action="" method="post" class="comment-form" >
-    {{ comment_form.as_p }}
+    <label for="id_comment" class="h3">Comment :</label>
+    {{ comment_form.comment }}
     {% csrf_token %}
-    <button type="submit" class="text">Add Comment</button>
+    <button type="submit" class="text button-primary" name = "add-comment">Comment</button>
 </form>
 
 <div class="comment-container">
-    {% for comment in comments%}
+    {% for a in comments%}
         <div class="small-comment-container">
-            <p class="text">{{comment.commentor}} : {{comment.content}} : {{comment.created_at}}</p>
-            {% if user == comment.commentor %}
+            <div class="comment-all">
+                <div class="commentor-date-name">
+                    <p class="text">{{a.commentor}}</p>
+                    <p class="alerts">{{a.created_at}}</p>
+                    </div>
+                <p class="text">{{a.comment}}</p>
+            </div>
+            {% if user == a.commentor %}
                 <form action="" method ="post">
                     {% csrf_token %}
-                    <button type="submit" name="delete_comment" value="{{ comment.id }}" class="text">Delete</button>
+                    <button type="submit" name="delete_comment" value="{{ a.id }}" class="text">Delete</button>
                 </form>
             {% endif %}
         </div>

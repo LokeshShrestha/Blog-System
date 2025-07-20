@@ -15,7 +15,7 @@ class BlogPostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['content']
+        fields = ['comment']
         widgets = {
-            'content': forms.Textarea(attrs={'placeholder': 'Comment here...'}),
+            'comment': forms.Textarea(attrs={'placeholder': 'Comment here...', 'class': 'text'}),
         }

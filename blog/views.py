@@ -53,23 +53,23 @@ def blog_details(request,id):
         if "delete_comment" in request.POST:
             comment_id = request.POST.get("delete_comment")
             try:
-                comment = comments.get(id=comment_id)
-                if request.user == comment.commentor:
-                    comment.delete()
+                a = comments.get(id=comment_id)
+                if request.user == a.commentor:
+                    a.delete()
             except:
                 pass
             return redirect("blog:blog_details", id=blog.id)
         
         #  Put ccomment
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = blog
-            comment.commentor = request.user
-            comment.save()
-            return redirect("blog:blog_details", id=blog.id)
-    else:
-        form = CommentForm()
+        if "add-comment" in request.POST:
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.post = blog
+                comment.commentor = request.user
+                comment.save()
+                return redirect("blog:blog_details", id=blog.id)
+    form = CommentForm()
     context = {
         "blog": blog,
         "comment_form": form,
@@ -97,3 +97,19 @@ def edit_blog(request,id):
         "form": form,
     }
     return render(request,"edit_blog.html",context)
+def delete_blog(request, id):
+    blog = BlogPost.objects.get(id=id)
+    if not request.user.is_authenticated:
+        return redirect("members:login")
+    
+    if request.user != blog.author:
+        return redirect("blog:blog_details", id=blog.id)
+    
+    if request.method == "POST":
+        blog.delete()
+        return redirect("blog:blog_home")
+    
+    context = {
+        "blog": blog,
+    }
+    return render(request, "delete_blog.html", context)

@@ -9,7 +9,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     ordering = ['-created_at']
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['post', 'commentor', 'content', 'created_at']
+    list_display = ['post', 'commentor', 'comment', 'created_at']
     search_fields = ['content', 'commentor']
     list_filter = ['created_at']
     ordering = ['-created_at']

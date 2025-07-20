@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block title %}BlogX Home{% endblock %}
+{% block user_links %}
+    {% if request.user.is_authenticated and request.userprofile.rank == "author" %}
+        <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
+    {% endif %}
+{% endblock %}
 {% block content %}
 <div class = "blog-home-hero">
     <h1 class="h1">Welcome to BlogX</h1>

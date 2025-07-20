@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Delete | {{ blog.title.capitalize }}{% endblock %}
+{% block user_links %}
+    {% if request.user.is_authenticated and request.userprofile.rank == "author" %}
+        <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+<form action="" method="post" class="delete-blog-form">
+    {% csrf_token %}
+    <div class="delete-blog-header">
+        <h1 class="h1">{{ blog.title.capitalize }}</h1>
+        <div>
+            <p class="alerts">Author: {{ blog.author|capfirst }}</p>
+            <p class="alerts">{{ blog.created_at }}</p>
+        </div>
+    </div>
+    <p class="text">This blog post will be permanently deleted.</p>
+    <p class="text">Are you sure you want to delete this blog post?</p>
+    <div>
+        <button type="submit" class="text button-secondary">Delete</button>
+        <a href="{% url 'blog:blog_details' blog.id %}" class="text button-primary">Cancel</a>
+    </div>
+</form>
+{% endblock %}
