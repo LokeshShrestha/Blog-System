@@ -6,6 +6,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: 0.3s ease-in-out all;
     width: 370px;
+    min-width: 370px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -37,9 +38,37 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    flex-wrap: wrap;
 }
 .all-blog-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* Blog details */
+.btns-blog-details{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    align-items: center;
+}
+.blog-details-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.small-comment-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }

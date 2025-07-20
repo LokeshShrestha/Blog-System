@@ -1,45 +1,61 @@
 {% extends "base.html" %}
-{% block title %}{{ blog.title.capitalize }}{% endblock %}
+{% block title %}BlogX | {{ blog.title.capitalize }}{% endblock %}
 
 {% block content %}
 
+<div class="blog-details-container">
+    <div>
+        <h1 class="h1">{{blog.title.capitalize}}</h1>
+        <p class="text">{{blog.created_at}}</p>
 
-{{blog.title}}
-Author : {{blog.author}}
-Posted : {{blog.created_at}}
-<br>
-Category : {{blog.category}}
-Views : {{blog.view_count}}
+    </div>
+    <p class="text">Author : {{blog.author}}</p>
+    <p class="text">Category : {{blog.category}}</p>
+    <p class="text">Views : {{blog.view_count}}</p>
+</div>
+<div class="btns-blog-details">
+    <form action="" method="post" class="like-form-button">
+            {% csrf_token %}
+            <button class="likeBtn" type="submit" name="like_this">
+                <span class="leftContainerLike">
+                    <svg fill="white" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></svg>
+                    <span class="like">Like</span>
+                </span>
+                <span class="likeCount">
+                    {{ blog.like_count }}
+                </span>
+            </button>
+    </form>
 
-<form action="" method="post">
-        {% csrf_token %}
-        <button name = "like_this" type="submit">Likes | {{blog.like_count}}</button>
-</form>
+    {% if user == blog.author %}
+    <a href="{% url 'blog:edit_blog' blog.id %}" class="text button-primary">Edit</a>
+    {% endif %} 
+</div>
+<div class="blog-details-content">
+    <p class="text">{{blog.content}}</p>
+    <p class="text">Tags: {{blog.tags}}</p>
 
-{% if user == blog.author %}
-<a href="{% url 'blog:edit_blog' blog.id %}">Edit</a>
-{% endif %} 
-
-<br>
-<br>
-{{blog.content}}
-<br>
-{{blog.tags}}
+</div>
 <hr>
-comments:
-<form action="" method="post">
+<h3 class="h3">Comments:</h3>
+<form action="" method="post" class="comment-form" >
     {{ comment_form.as_p }}
     {% csrf_token %}
-    <button type="submit">Add Comment</button>
+    <button type="submit" class="text">Add Comment</button>
 </form>
-{% for comment in comments%}
-    {{comment.commentor}} : {{comment.content}} : {{comment.created_at}}
-    {% if user == comment.commentor %}
-        <form action="" method ="post">
-            {% csrf_token %}
-            <button type="submit" name="delete_comment" value="{{ comment.id }}">Delete</button>
-        </form>
-    {% endif %}
-    <br>
-{%endfor%}
+
+<div class="comment-container">
+    {% for comment in comments%}
+        <div class="small-comment-container">
+            <p class="text">{{comment.commentor}} : {{comment.content}} : {{comment.created_at}}</p>
+            {% if user == comment.commentor %}
+                <form action="" method ="post">
+                    {% csrf_token %}
+                    <button type="submit" name="delete_comment" value="{{ comment.id }}" class="text">Delete</button>
+                </form>
+            {% endif %}
+        </div>
+    {%endfor%}
+</div>
+
 {% endblock %}
