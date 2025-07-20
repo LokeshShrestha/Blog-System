@@ -52,7 +52,7 @@ def infouser(request):
             return redirect("members:profile")
     else:
         form = forms.InfoForm(instance = user_profile)
-    return render(request,"info.html",{"form":form})
+    return render(request,"info.html",{"form":form,"rank":request.user.userprofile.rank})
 
 
 def profile(request):
@@ -65,5 +65,6 @@ def profile(request):
     
     return render(request, "profile.html", {
         "user": request.user,
-        "user_profile": user_profile
+        "user_profile": user_profile,
+        "rank": request.user.userprofile.rank,
     })

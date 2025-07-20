@@ -74,6 +74,7 @@ def blog_details(request,id):
         "blog": blog,
         "comment_form": form,
         "comments": comments,
+        "rank": request.user.userprofile.rank,
     }
     return render(request,"blog_details.html",context)
 
@@ -95,6 +96,7 @@ def edit_blog(request,id):
     context = {
         "blog": blog,
         "form": form,
+        "rank": request.user.userprofile.rank,
     }
     return render(request,"edit_blog.html",context)
 def delete_blog(request, id):
@@ -111,5 +113,6 @@ def delete_blog(request, id):
     
     context = {
         "blog": blog,
+        "rank": request.user.userprofile.rank,
     }
     return render(request, "delete_blog.html", context)

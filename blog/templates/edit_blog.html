@@ -2,7 +2,7 @@
 
 {% block title %}Edit | {{ blog.title.capitalize }}{% endblock %}
 {% block user_links %}
-    {% if request.user.is_authenticated and request.userprofile.rank == "author" %}
+    {% if rank == "author" %}
         <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
     {% endif %}
 {% endblock %}
