@@ -5,7 +5,7 @@
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: 0.3s ease-in-out all;
-    width: 450px;
+    width: 370px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -21,11 +21,14 @@
 }
 .blog-stats{
     display: flex;
-    gap: 10px;
     align-items: center;
+    justify-content: space-between;
 }
 .blog-home-hero {
     margin: 10px 0;
+}
+.blog-container{
+    margin-bottom: 20px;
 }
 .blog-container p{
     margin-bottom: 20px;
