@@ -27,7 +27,7 @@
             <p class="text">{{ i.content|slice:":104" }} ......</p>
             <div class="blog-author-content">
                 <p class="text">Author: {{ i.author.username.capitalize }} </p>
-                <p class="text">{{ i.created_at }}</p>
+                <p class="text">{{ i.created_at|date:"F j, Y" }}</p>
             </div>
             <div class="blog-stats">
                 <p class="text">Views: {{ i.view_count }}</p>
@@ -47,7 +47,7 @@
             <p class="text">{{ i.content|slice:":104" }} ......</p>
             <div class="blog-author-content">
                 <p class="text">Author: {{ i.author.username.capitalize }} </p>
-                <p class="text">{{ i.created_at }}</p>
+                <p class="text">{{ i.created_at|date:"F j, Y" }}</p>
             </div>
             <div class="blog-stats">
                 <p class="text">Views: {{ i.view_count }}</p>

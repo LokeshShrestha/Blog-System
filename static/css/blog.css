@@ -135,9 +135,12 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     flex-direction: column;
     justify-content: center;
+}
+.post_blogclass section textarea{
+    resize: none;
 }
 .post_blogclass section input,
 .post_blogclass section select,

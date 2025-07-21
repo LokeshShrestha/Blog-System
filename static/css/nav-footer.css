@@ -1,17 +1,36 @@
 nav{
     padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    justify-content: space-between;
+    align-items: center;
 }
 nav .nav-list{
     list-style: none;
     display: flex;
     gap: 50px;
     justify-content: center;
+    margin: 0 auto;
+    grid-column: 2;
 }
 nav .nav-list li a {
     text-decoration: none;
     color: rgb(69, 1, 133);
 }
-
+nav .search-form {
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+.search-form .search-input{
+    padding: 5px 10px;border: none;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out all;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
 /* Profile */
 .profile-container {
     min-height: 100vh;

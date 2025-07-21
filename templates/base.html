@@ -14,16 +14,14 @@
         <nav>
             <ul class="nav-list">
                 <li><a href="{% url 'blog:blog_home' %}" class="text">Blogs</a></li>
-                <li><a href="{% url 'members:profile' %}" class="text">Profile</a></li>
                 {% block user_links %}
                 {% endblock %}
-                <li class="search-box">
-                    <form action="{% url 'blog:search_blogs' %}" method="GET">
-                        <input type="text" name="q" placeholder="Search for blogs" value="{{request.GET.q}}">
-                        <button type="submit"></button>
-                    </form>
-                </li>
+                <li><a href="{% url 'members:profile' %}" class="text">Profile</a></li>
             </ul>
+            <form action="{% url 'blog:search_blogs' %}" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="🔍Search for blogs" value="{{request.GET.q}}" class="search-input text">
+                <button type="submit"></button>
+            </form>
         </nav>
     </header>
     <main>
