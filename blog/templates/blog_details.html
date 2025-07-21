@@ -1,10 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}BlogX | {{ blog.title.capitalize }}{% endblock %}
 {% block user_links %}
     {% if rank == "author" %}
         <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
     {% endif %}
 {% endblock %}
+{% block extra_styles%}
+    <link rel="stylesheet" href="{% static 'css/tinymce.css' %}">
+{%endblock%}   
 {% block content %}
 
 <div class="blog-details-container">
@@ -37,7 +41,7 @@
     {% endif %}
 </div>
 <div class="blog-details-content">
-    <p class="text">{{blog.content}}</p>
+    <p class="text">{{blog.content|safe}}</p>
     <p class="text">Tags: {{blog.tags}}</p>
 
 </div>

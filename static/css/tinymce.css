@@ -1,0 +1,56 @@
+
+.blog-details-content {
+    font-family: var(--font-family); /* Use your site's font */
+}
+
+.blog-details-content p{
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.blog-details-content h1{
+    font-family: var(--font-family);
+    font-size: var(--h1-f);
+    line-height: var(--h1-l);
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.blog-details-content h2{
+    font-family: var(--font-family);
+    font-size: 25px;
+    line-height: 42px;
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.blog-details-content h3{
+     font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.blog-details-content h4,
+.blog-details-content h5,
+.blog-details-content h6,
+.blog-details-content div,
+.blog-details-content span {
+    font-family: inherit !important;
+    font-size: inherit;
+}
+
+.blog-details-content * {
+    font-family: inherit !important;
+}
+.blog-details-content td {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+.blog-details-content li {
+    margin-left: 20px;
+}

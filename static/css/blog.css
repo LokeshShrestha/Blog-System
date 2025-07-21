@@ -162,3 +162,9 @@
     background: none;
     border: none;
 }
+.tox-editor-container .tox-editor-header .tox-promotion{
+    display: none;
+}
+.tox-statusbar__branding{
+    display: none;
+}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 # Create your models here.
 def user_directory_path(instance, filename):
     return f'blog_images/{instance.author.username}/{filename}'
@@ -19,7 +20,7 @@ class BlogPost(models.Model):
         ('other', 'Other'),
     ]
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = HTMLField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

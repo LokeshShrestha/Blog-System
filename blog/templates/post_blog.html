@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Post Blog{% endblock %}
 {% block user_links %}
     {% if rank == "author" %}
@@ -6,6 +7,7 @@
     {% endif %}
 {% endblock %}
 {% block content %}
+{{form.media}}
 <form action="" method="post" class="post_blogclass text" enctype="multipart/form-data">
     <section>
         <label for="id_title">Title</label>
