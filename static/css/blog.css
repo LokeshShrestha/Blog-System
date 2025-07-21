@@ -90,7 +90,7 @@
 }
 .comment-form textarea:active {
     border-bottom: rgba(0, 0, 0, 0.842) solid 2px;
-    transform: translateY(7px);
+    transform: translateY(3px);
 }
 .comment-form{
     display: flex;
@@ -124,4 +124,38 @@
     display: flex;
     gap: 30px;
     align-items: center;
+}
+.post_blogclass {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.post_blogclass section {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+}
+.post_blogclass section input,
+.post_blogclass section select,
+.post_blogclass section textarea {
+    max-width: 700px;
+    width: 700px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out all;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.post_blogclass section input:active,
+.post_blogclass section select:active,
+.post_blogclass section textarea:active {
+    transform: translateY(7px);
+    background: none;
+    border: none;
 }

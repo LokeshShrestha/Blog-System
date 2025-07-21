@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+{% block title %}Search Results{% endblock %}
+
+{% block user_links %}
+    {% if rank == "author" %}
+        <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="search-results text">
+    <h1 class="h1">Search Results for "{{ query }}"</h1>
+    {% if result %}
+        <ul>
+            {% for blog in result %}
+                <div class="search-blog-item">
+                    <div class="search-blog-header">
+                        <a href="{% url 'blog:blog_details' blog.id %}">{{ blog.title }}</a>
+                        <p class="alerts">Posted by {{ blog.author }} on {{ blog.created_at|date:"F j, Y" }}</p>
+                    </div>
+                    <p>Tags: {{blog.tags}}</p>
+                    <p>{{ blog.content|truncatewords:30 }}</p>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No blogs found matching your search.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -116,3 +116,24 @@ def delete_blog(request, id):
         "rank": request.user.userprofile.rank,
     }
     return render(request, "delete_blog.html", context)
+
+from django.db.models import Q
+
+def search_blogs(request):
+    query = request.GET.get('q')
+    # print(f"Search query: {query}")
+    if query:
+        result = BlogPost.objects.filter(
+            Q(title__icontains=query) | 
+            Q(content__icontains=query) | 
+            Q(author__username__icontains=query)
+        ).distinct()
+    else:
+        result = BlogPost.objects.none()
+    # print(f"Search results: {result}")
+    context = {
+        "result": result,
+        "query": query,
+        "rank": request.user.userprofile.rank,
+    }
+    return render(request, "search.html", context)

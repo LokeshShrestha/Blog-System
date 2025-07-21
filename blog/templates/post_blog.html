@@ -6,9 +6,26 @@
     {% endif %}
 {% endblock %}
 {% block content %}
-<form action="" method="post">
-    {{form.as_p}}
+<form action="" method="post" class="post_blogclass text">
+    <section>
+        <label for="id_title">Title</label>
+        {{ form.title }}
+    </section>
+    <section>
+        <label for="id_content">Content</label>
+        {{ form.content }}
+    </section>
+    <section>
+        <label for="id_tags">Tags</label>
+        {{ form.tags }}
+    </section>
+    <section>
+        <label for="id_category">Category</label>
+    {{ form.category }}
+    </section>
     {% csrf_token %}
-    <button type="submit">Post blog</button>
+    <section>
+        <button type="submit" class="text button-secondary">Post blog</button>
+    </section>
 </form>
 {% endblock %}
