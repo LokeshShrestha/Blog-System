@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #e8e8e8;
+}
+body{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+:root {
+  /* Fonts */
+  --font-family: "Noto Sans", sans-serif;
+  --font-optical-sizing: auto;
+  --h1-f: 30px;
+  --h1-l: 54px;
+  --font-weight: 600;
+  --font-style: normal;
+}
+/* Text */
+.h1 {
+    font-family: var(--font-family);
+    font-size: var(--h1-f);
+    line-height: var(--h1-l);
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.h2{
+    font-family: var(--font-family);
+    font-size: 25px;
+    line-height: 42px;
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.h3{
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.text{
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.alerts{
+    font-family: var(--font-family);
+    font-size: 11px;
+    line-height: 18px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+
+
+/* button */
+.button-primary {
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  color: black;
+  box-shadow: rgb(0 0 0 / 18%) 0 0 8px;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+.button-primary:hover {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+.button-primary:active {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+
+.button-secondary {
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  background-color: rgba(255, 85, 6, 0.863);
+  color: black;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+.button-secondary:hover {
+  letter-spacing: 3px;
+  background-color: hsl(4, 80%, 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(220, 24, 24) 0px 7px 29px 0px;
+}
+
+.button-secondary:active {
+  letter-spacing: 3px;
+  background-color: hsl(22, 89%, 47%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(220, 102, 24) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+/* From Uiverse.io by vinodjangid07 */
+/* From Uiverse.io by vinodjangid07 */ 
+.likeBtn {
+  width: 140px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.089);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.leftContainerLike {
+  width: 60%;
+  height: 100%;
+  background-color: rgb(238, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.leftContainerLike .like {
+  color: white;
+  font-weight: 600;
+}
+
+.likeCount {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(238, 0, 0);
+  font-weight: 600;
+  position: relative;
+  background-color: white;
+}
+
+.likeCount::before {
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  content: "";
+  background-color: rgb(255, 255, 255);
+  transform: rotate(45deg);
+  left: -4px;
+}
+
+.likeBtn:hover .leftContainerLike {
+  background-color: rgb(219, 0, 0);
+}
+
+.likeBtn:active .leftContainerLike {
+  background-color: rgb(201, 0, 0);
+}
+
+.likeBtn:active .leftContainerLike svg {
+  transform: scale(1.15);
+  transform-origin: top;
+}
