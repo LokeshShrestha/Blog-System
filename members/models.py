@@ -4,11 +4,12 @@ from blog.models import BlogPost
 
 from django.dispatch import receiver
 # Create your models here.
-
+def user_directory_path(instance, filename):
+    return f'profile_pics/{instance.user.username}/{filename}'
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
-    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    profile_picture = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     rank = models.CharField(max_length=20, choices=[
         ('admin', 'Admin'),
         ('author', 'Author'),

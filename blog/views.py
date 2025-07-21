@@ -23,7 +23,7 @@ def post_blog(request):
     if request.user.userprofile.rank != 'author':
         return redirect("members:profile")
     if request.method == "POST":
-        form = BlogPostForm(request.POST)
+        form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
             blog_post = form.save(commit=False)
             blog_post.author = request.user
@@ -87,7 +87,7 @@ def edit_blog(request,id):
         return redirect("blog:blog_details", id=blog.id)
     
     if request.method == "POST":
-        form = BlogPostForm(request.POST, instance = blog)
+        form = BlogPostForm(request.POST,request.FILES, instance = blog)
         if form.is_valid():
             form.save()
             return redirect("blog:blog_details", id=blog.id)

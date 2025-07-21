@@ -6,7 +6,7 @@
     {% endif %}
 {% endblock %}
 {% block content %}
-<form action="" method="post" class="post_blogclass text">
+<form action="" method="post" class="post_blogclass text" enctype="multipart/form-data">
     <section>
         <label for="id_title">Title</label>
         {{ form.title }}
@@ -21,7 +21,11 @@
     </section>
     <section>
         <label for="id_category">Category</label>
-    {{ form.category }}
+        {{ form.category }}
+    </section>
+    <section>
+        <label for="id_image">Image</label>
+        {{ form.image }}
     </section>
     {% csrf_token %}
     <section>

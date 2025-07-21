@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}BlogX Home{% endblock %}
+{% load static %}
 {% block user_links %}
     {% if rank == "author" %}
         <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
@@ -24,6 +25,11 @@
         {% for i in top_blogs %}
         <div class="top-post-container">
             <h3 class="h3">{{ i.title.capitalize }}</h3>
+            {% if i.image %}
+                <img src="{{ i.image.url }}" alt="{{ i.title }}" class="blog-image">
+            {% else %}
+                <img src="{% static 'images/default_image.jpg' %}" alt="Default Image">
+            {% endif %}
             <p class="text">{{ i.content|slice:":104" }} ......</p>
             <div class="blog-author-content">
                 <p class="text">Author: {{ i.author.username.capitalize }} </p>
@@ -44,6 +50,11 @@
         {% for i in recent_blogs %}
         <div class="top-post-container">
             <h3 class="h3">{{ i.title.capitalize }}</h3>
+            {% if i.image %}
+                <img src="{{ i.image.url }}" alt="{{ i.title }}" class="blog-image">
+            {% else %}
+                <img src="{% static 'images/default_image.jpg' %}" alt="Default Image">
+            {% endif %}
             <p class="text">{{ i.content|slice:":104" }} ......</p>
             <div class="blog-author-content">
                 <p class="text">Author: {{ i.author.username.capitalize }} </p>
