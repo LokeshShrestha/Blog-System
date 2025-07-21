@@ -12,13 +12,13 @@
 {% block content %}
 
 <div class="blog-details-container">
-    <div>
+    <div class="asas-blog-details">
         <h1 class="h1">{{blog.title.capitalize}}</h1>
-        <p class="text">{{blog.created_at}}</p>
+        <p class="text">{{blog.created_at|date:"F j, Y"}}</p>
 
     </div>
     <p class="text">Author : {{blog.author}}</p>
-    <p class="text">Category : {{blog.category}}</p>
+    
     <p class="text">Views : {{blog.view_count}}</p>
 </div>
 <div class="btns-blog-details">
@@ -43,6 +43,7 @@
 <div class="blog-details-content">
     <p class="text">{{blog.content|safe}}</p>
     <p class="text">Tags: {{blog.tags}}</p>
+    <p class="text">Category : {{blog.category}}</p>
 
 </div>
 

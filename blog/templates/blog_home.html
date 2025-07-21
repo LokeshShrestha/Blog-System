@@ -30,7 +30,7 @@
             {% else %}
                 <img src="{% static 'images/default_image.jpg' %}" alt="Default Image">
             {% endif %}
-            <p class="text">{{ i.content|slice:":104" }} ......</p>
+            <p class="text">{{ i.content|striptags|truncatewords:20}}<p>
             <div class="blog-author-content">
                 <p class="text">Author: {{ i.author.username.capitalize }} </p>
                 <p class="text">{{ i.created_at|date:"F j, Y" }}</p>

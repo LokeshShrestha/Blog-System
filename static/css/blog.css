@@ -162,9 +162,18 @@
     background: none;
     border: none;
 }
+/* mce */
 .tox-editor-container .tox-editor-header .tox-promotion{
     display: none;
 }
 .tox-statusbar__branding{
     display: none;
+}
+
+.blog-details-container .asas-blog-details{
+    display: flex;
+    align-items: center;
+}
+.asas-blog-details h1 {
+    width: 70vw;
 }

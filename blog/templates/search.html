@@ -19,7 +19,7 @@
                         <p class="alerts">Posted by {{ blog.author }} on {{ blog.created_at|date:"F j, Y" }}</p>
                     </div>
                     <p>Tags: {{blog.tags}}</p>
-                    <p>{{ blog.content|truncatewords:30 }}</p>
+                    <p>{{ blog.content|striptags|truncatewords:30 }}</p>
                 </div>
             {% endfor %}
         </ul>
