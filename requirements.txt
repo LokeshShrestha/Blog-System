@@ -1,0 +1,11 @@
+# Core Django framework
+Django==5.2.3
+
+# Image processing for user uploads (profile pictures, blog images)
+Pillow==10.4.0
+
+# Rich text editor for blog content
+django-tinymce==4.1.0
+
+# Static file serving for production
+whitenoise==6.7.0
