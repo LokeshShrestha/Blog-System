@@ -30,7 +30,7 @@ A full-featured blog application built with Django that supports user authentica
 - **Backend**: Django 4.x
 - **Database**: SQLite (default, easily configurable to PostgreSQL/MySQL)
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Rich Text Editor**: TinyMCE/CKEditor
+- **Rich Text Editor**: TinyMCE
 - **Image Processing**: Pillow
 - **Authentication**: Django's built-in authentication system
 
