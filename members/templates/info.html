@@ -9,7 +9,14 @@
 {% block content %}
 <h1 class="h1">Add Information</h1>
 <form action="" method = "POST" enctype="multipart/form-data" class = "info-form">
-    {{ form.as_p }}
+    <section>
+        <label for="id_bio">About Yourself:</label>
+        {{ form.bio }}
+    </section>
+    <section>
+        <label for="id_profile_picture">Profile Picture:</label>
+        {{ form.profile_picture }}
+    </section>
     {%csrf_token%}
     <div class="info-buttons">
         <button type="submit" class="text button-primary">Save</button>

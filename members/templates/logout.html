@@ -1,10 +1,25 @@
 {%extends "base.html"%}
 {% block title %}Logout{% endblock %}
 {% block content %}
-<h2>Sure wanna logout ?</h2>
+{% block user_links %}
+    {% if rank == "author" %}
+        <li><a href="{% url 'blog:post_blog' %}" class="text">Post Blog</a></li>
+    {% endif %}
+{% endblock %}
+{% load static %}
+<style>
+    main {
+        height: 80vh;
+    }
+    h2{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<h2  class="h2">Sure wanna logout ?</h2>
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Logout</button>
-    <a href="{% url 'members:profile' %}">Cancel</a>
+    <button type="submit" class="text button-primary">Logout</button>
+    <a href="{% url 'members:profile' %}" class="button-secondary text">Cancel</a>
 </form>
 {% endblock %}

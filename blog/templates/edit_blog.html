@@ -30,7 +30,21 @@
     
     <section>
         <label for="id_image">Image</label>
-        {{ form.image }}
+        
+        {% if blog.image %}
+            <div class="current-image" >
+                <div class="current-image-details">
+                    <p class="text">Current image</p>
+                    <img src="{{ blog.image.url }}" alt="Current image" style="max-width: 200px; height: auto;">
+                </div>
+                <div>
+                    <p class="text">Change Image</p>
+                    {{ form.image }}
+                </div>
+            </div>
+        {%else%}
+            {{ form.image }}
+        {% endif %}
     </section>
     {% csrf_token %}
     <section>

@@ -13,7 +13,7 @@
     {% if result %}
         <ul>
             {% for blog in result %}
-                <div class="search-blog-item">
+                <div class="search-blog-item" style="padding: 10px 0px ;">
                     <div class="search-blog-header">
                         <a href="{% url 'blog:blog_details' blog.id %}">{{ blog.title }}</a>
                         <p class="alerts">Posted by {{ blog.author }} on {{ blog.created_at|date:"F j, Y" }}</p>
@@ -21,6 +21,7 @@
                     <p>Tags: {{blog.tags}}</p>
                     <p>{{ blog.content|striptags|truncatewords:30 }}</p>
                 </div>
+                <hr>
             {% endfor %}
         </ul>
     {% else %}

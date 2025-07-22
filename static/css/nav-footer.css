@@ -59,7 +59,8 @@ nav .search-form {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    
+    align-items: flex-start;
+    justify-content: left;
 }
 .info-form label {
     
@@ -72,4 +73,71 @@ nav .search-form {
 }
 footer {
     padding-bottom: 20px;
+}
+.info-form input[type="file"] {
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
+.info-form textarea{
+    width: 600px;
+    height: 400px;
+    padding: 10px;
+    resize: none;
+    border: none;
+    outline: none;
+
+}
+.info-form section {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0px;
+    align-items: flex-start;
+    justify-content: left;
+}
+.info-form section label {
+    width: 150px;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+.login-form div a{
+    width: 150px;
+    text-align: center;
+}
+.login-form div button {
+    width: 150px;
+}
+.login-form div {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: left;
+}
+.login-form label {
+   font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+    display: inline-block;
+    width: 100px;
+}
+.login-form input {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+    padding: 10px ;
+    border: none;
+    outline: none;
 }

@@ -177,3 +177,18 @@
 .asas-blog-details h1 {
     width: 70vw;
 }
+.current-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 20px;
+}
+.current-image-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 5px;
+}

@@ -31,6 +31,10 @@ class InfoForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['bio','profile_picture']
+        widgets = {
+            'bio': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
+            'profile_picture': forms.FileInput(attrs={'class': 'form-control text'})
+        }
     def __init__(self, *args,**kwargs):
         super().__init__(*args,**kwargs)
         self.fields['bio'].widget.attrs['class'] = 'form-control text'

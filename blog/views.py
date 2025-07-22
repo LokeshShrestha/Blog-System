@@ -88,9 +88,16 @@ def edit_blog(request,id):
     
     if request.method == "POST":
         form = BlogPostForm(request.POST,request.FILES, instance = blog)
+        if request.POST.get('image-clear'):
+            blog.image.delete()  # This deletes the file
+            blog.image = None
+            blog.save()
+
         if form.is_valid():
             form.save()
             return redirect("blog:blog_details", id=blog.id)
+        
+        
     else:
         form = BlogPostForm(instance=blog)
     context = {
