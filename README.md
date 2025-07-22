@@ -80,7 +80,7 @@ Basic_Blog_Site/
 ### Prerequisites
 - Python 3.8+
 - pip (Python package manager)
-- install requirements
+- 
 ### Installation Steps
 
 1. **Clone the repository**
