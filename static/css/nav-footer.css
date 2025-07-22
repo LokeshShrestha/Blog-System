@@ -141,3 +141,51 @@ footer {
     border: none;
     outline: none;
 }
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+}
+.form-group div input {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+    padding: 10px ;
+    width: 300px;
+    border: none;
+    outline: none;
+}
+.form-group div label {
+    display: inline-block;
+    width: 150px;
+}
+.form-group div{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: left;
+}
+.form-group .error-message ul {
+    list-style: none;
+    margin-left: 10px;
+}
+.signup-p{
+    margin-bottom: 100px;
+}
+.login-form .errorlist {
+        list-style: none;
+        margin-left: 10px;
+    }
+.login-form .errorlist li {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 480;
+    font-style: var(--font-style);
+    font-optical-sizing: var(--font-optical-sizing);
+}
