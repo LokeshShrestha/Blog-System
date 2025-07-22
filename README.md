@@ -11,7 +11,7 @@ A full-featured blog application built with Django that supports user authentica
 
 ### ✅ Blog Management
 - **Full CRUD Operations**: Create, read, update, and delete blog posts
-- **Rich Text Editor**: Integrated TinyMCE or CKEditor for enhanced content creation
+- **Rich Text Editor**: Integrated TinyMCE for enhanced content creation
 - **Image Uploads**: Support for blog post images using Pillow
 - **Categories & Tags**: Organize posts with categorization and tagging system
 
