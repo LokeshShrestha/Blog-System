@@ -96,8 +96,6 @@ def edit_blog(request,id):
         if form.is_valid():
             form.save()
             return redirect("blog:blog_details", id=blog.id)
-        
-        
     else:
         form = BlogPostForm(instance=blog)
     context = {
