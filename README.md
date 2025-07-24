@@ -4,18 +4,18 @@ A full-featured blog application built with Django that supports user authentica
 
 ## Features
 
-### ✅ User Management
+### User Management
 - **User Registration & Authentication**: Complete signup, login, and logout functionality
 - **User Roles**: Two-tier system with Author and Reader roles
 - **Profile Management**: Users can create and update their profiles with bio and profile pictures
 
-### ✅ Blog Management
+### Blog Management
 - **Full CRUD Operations**: Create, read, update, and delete blog posts
 - **Rich Text Editor**: Integrated TinyMCE for enhanced content creation
 - **Image Uploads**: Support for blog post images using Pillow
 - **Categories & Tags**: Organize posts with categorization and tagging system
 
-### ✅ Interactive Features
+### Interactive Features
 - **Comments System**: Users can comment on blog posts
 - **Like System**: Users can like/unlike blog posts
 - **View Tracking**: Track and display view counts for posts
