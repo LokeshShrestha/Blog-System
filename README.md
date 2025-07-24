@@ -21,7 +21,7 @@ A full-featured blog application built with Django that supports user authentica
 - **View Tracking**: Track and display view counts for posts
 - **Search Functionality**: Search through blog posts
 
-### ✅ UI/UX
+###  UI/UX
 - **Rich Animated CSS**: Modern, responsive design with smooth animations
 - **Responsive Layout**: Mobile-friendly design that works across devices
 
@@ -45,7 +45,7 @@ Basic_Blog_Site/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── blog/                     # Blog app
+├── blog/                    # Blog app
 │   ├── models.py            # Blog post, comment, category models
 │   ├── views.py             # Blog views and logic
 │   ├── forms.py             # Blog forms
