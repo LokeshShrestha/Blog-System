@@ -4,24 +4,24 @@ A full-featured blog application built with Django that supports user authentica
 
 ## Features
 
-### ✅ User Management
+### User Management
 - **User Registration & Authentication**: Complete signup, login, and logout functionality
 - **User Roles**: Two-tier system with Author and Reader roles
 - **Profile Management**: Users can create and update their profiles with bio and profile pictures
 
-### ✅ Blog Management
+### Blog Management
 - **Full CRUD Operations**: Create, read, update, and delete blog posts
-- **Rich Text Editor**: Integrated TinyMCE or CKEditor for enhanced content creation
+- **Rich Text Editor**: Integrated TinyMCE for enhanced content creation
 - **Image Uploads**: Support for blog post images using Pillow
 - **Categories & Tags**: Organize posts with categorization and tagging system
 
-### ✅ Interactive Features
+### Interactive Features
 - **Comments System**: Users can comment on blog posts
 - **Like System**: Users can like/unlike blog posts
 - **View Tracking**: Track and display view counts for posts
 - **Search Functionality**: Search through blog posts
 
-### ✅ UI/UX
+###  UI/UX
 - **Rich Animated CSS**: Modern, responsive design with smooth animations
 - **Responsive Layout**: Mobile-friendly design that works across devices
 
@@ -30,7 +30,7 @@ A full-featured blog application built with Django that supports user authentica
 - **Backend**: Django 4.x
 - **Database**: SQLite (default, easily configurable to PostgreSQL/MySQL)
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Rich Text Editor**: TinyMCE/CKEditor
+- **Rich Text Editor**: TinyMCE
 - **Image Processing**: Pillow
 - **Authentication**: Django's built-in authentication system
 
@@ -45,7 +45,7 @@ Basic_Blog_Site/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── blog/                     # Blog app
+├── blog/                    # Blog app
 │   ├── models.py            # Blog post, comment, category models
 │   ├── views.py             # Blog views and logic
 │   ├── forms.py             # Blog forms
@@ -80,7 +80,7 @@ Basic_Blog_Site/
 ### Prerequisites
 - Python 3.8+
 - pip (Python package manager)
-- install requirements
+
 ### Installation Steps
 
 1. **Clone the repository**
