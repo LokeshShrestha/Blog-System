@@ -6,7 +6,7 @@ def user_directory_path(instance, filename):
     return f'blog_images/{instance.author.username}/{filename}'
 class BlogPost(models.Model):
     CATEGORY_CHOICES = [
-        ('technology', 'Technology'),
+        ('technology', 'Technology'),   
         ('sports', 'Sports'),
         ('health', 'Health'),
         ('travel', 'Travel'),
